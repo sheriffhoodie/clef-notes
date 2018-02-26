@@ -16,7 +16,7 @@ class AddStudent extends React.Component {
 
     this.props.studentCreate({ name, phone1, phone2, canText, email,
       address, instrument, lessonDay: lessonDay || 'Monday',
-      lessonTime: lessonTime || '07:00', homework, active, notes });
+      lessonTime, homework, active, notes });
   }
 
   render() {

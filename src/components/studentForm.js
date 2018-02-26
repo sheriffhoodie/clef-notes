@@ -12,7 +12,6 @@ class StudentForm extends React.Component {
       toggled: false,
       canText: false,
       isVisible: false,
-      chosenTime: null
     };
     this.onTextSwitchChange = this.onTextSwitchChange.bind(this);
     this.onActiveSwitchChange = this.onActiveSwitchChange.bind(this);
@@ -26,10 +25,20 @@ class StudentForm extends React.Component {
     this.setState({ isVisible: false });
   }
 
+  convertTime(time) {
+    let hour = time.slice(0, 2);
+    let mins = time.slice(3, 5);
+    if (parseInt(hour) <= 12) {
+      return hour + ":" + mins + " AM";
+    } else {
+      return (parseInt(hour - 12)).toString() + ":" + mins + " PM";
+    }
+  }
+
   pickTime(time) {
-    this.props.studentUpdate({ prop: 'lessonTime', time});
-    this.setState({chosenTime: time});
-    console.log(this.state.chosenTime);
+    time = time.toString().slice(16, 22);
+    let newTime = this.convertTime(time);
+    this.props.studentUpdate({ prop: 'lessonTime', newTime});
     this.hideTimePicker();
   }
 
@@ -146,14 +155,16 @@ class StudentForm extends React.Component {
             mode="time"
             isVisible={this.state.isVisible}
             onConfirm={this.pickTime.bind(this)}
-            onCancel={this.hideTimePicker}
+            onCancel={this.hideTimePicker.bind(this)}
+            confirmTextIOS="Save"
+            titleIOS="Select a Lesson Time"
           />
         <Text></Text>
         </CardSection>
 
         <CardSection>
           <Input
-            label="Assignments"
+            label="Assignment"
             multiline={true}
             value={this.props.homework}
             placeholder="Assignments for the student"
