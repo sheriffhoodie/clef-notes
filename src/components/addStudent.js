@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { studentUpdate, studentCreate, clearStudentForm } from '../actions';
 import { Card, CardSection, Button } from './common';
 import StudentForm from './studentForm';
@@ -21,14 +21,16 @@ class AddStudent extends React.Component {
 
   render() {
     return (
-      <Card>
-        <StudentForm />
-        <CardSection>
-          <Button onPress={this.onSubmit.bind(this)}>
-            Add Student
-          </Button>
-        </CardSection>
-      </Card>
+      <ScrollView>
+        <Card>
+          <StudentForm />
+          <CardSection>
+            <Button onPress={this.onSubmit.bind(this)}>
+              Add Student
+            </Button>
+          </CardSection>
+        </Card>
+      </ScrollView>
     );
   }
 }
