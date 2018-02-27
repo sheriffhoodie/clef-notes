@@ -2,7 +2,8 @@ import { Actions } from 'react-native-router-flux';
 import firebase from 'firebase';
 import {
   STUDENT_UPDATE,
-  CLEAR_STUDENT_FORM
+  CLEAR_STUDENT_FORM,
+  STUDENTS_FETCH_SUCCESS
 } from './types';
 
 export const studentUpdate = ({prop, value}) => {
@@ -29,3 +30,13 @@ export const clearStudentForm = () => {
     type: CLEAR_STUDENT_FORM
   });
 };
+
+export const studentsFetch = () => {
+  const { currentUser } = firebase.auth();
+  return (dispatch) => {
+    firebase.database().ref(`users/${currentUser.uid}/students`)
+    .on('value', snapshot => {
+      dispatch({ type: STUDENTS_FETCH_SUCCESS, payload: snapshot.val() });
+    });
+  };
+} ;

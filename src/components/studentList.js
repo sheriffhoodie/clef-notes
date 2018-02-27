@@ -1,14 +1,36 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
+import _ from 'lodash';
+import { studentsFetch } from '../actions';
+import ListItem from './ListItem';
 
 class StudentList extends React.Component {
+  componentWillMount() {
+    this.props.studentsFetch();
+  }
+
   render() {
     return (
-      <View>
-        <Text>This is your student list.</Text>
-      </View>
+      <FlatList
+        data={this.props.students}
+        keyExtractor={(stud, index) => `${index}`}
+        renderItem={({ item }) => (
+          <ListItem
+            student={item}
+            name={item.name}
+          />
+        )}
+      />
     );
   }
+}
+
+const mapStateToProps = (state) => {
+  const students = _.map(state.students, (val, uid) => {
+    return { ...val, uid}
+  })
+  return { students }
 }
 
 export default StudentList;

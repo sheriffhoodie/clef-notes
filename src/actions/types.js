@@ -6,4 +6,5 @@ export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER = 'login_user';
 
 export const STUDENT_UPDATE = 'student_update';
+export const STUDENTS_FETCH_SUCCESS = 'student_fetch_success';
 export const CLEAR_STUDENT_FORM = 'clear_student_form';
