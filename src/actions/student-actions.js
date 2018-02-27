@@ -12,11 +12,11 @@ export const studentUpdate = ({prop, value}) => {
   };
 };
 
-export const studentCreate = ({ name, phone1, phone2, email, address, canText, instrument, active, homework, notes, lessonTime, lessonDay }) => {
+export const studentCreate = ({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, lessonDay }) => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`users/${currentUser.uid}/students`)
-      .push({ name, phone1, phone2, email, address, canText, instrument, active, notes, homework, lessonTime, lessonDay })
+      .push({ name, phone1, phone2, email, address, canText, instrument, active, notes, hourlyRate, homework, lessonTime, lessonDay })
       .then(() => {
         dispatch({ type: CLEAR_STUDENT_FORM });
         Actions.pop();

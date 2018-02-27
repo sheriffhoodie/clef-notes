@@ -12,11 +12,11 @@ class AddStudent extends React.Component {
 
   onSubmit() {
     const { name, phone1, phone2, canText, email, address, instrument,
-      lessonDay, lessonTime, homework, active, notes } = this.props;
+      lessonDay, lessonTime, hourlyRate, homework, active, notes } = this.props;
 
     this.props.studentCreate({ name, phone1, phone2, canText, email,
       address, instrument, lessonDay: lessonDay || 'Monday',
-      lessonTime, homework, active, notes });
+      lessonTime, hourlyRate, homework, active, notes });
   }
 
   render() {
@@ -37,10 +37,11 @@ class AddStudent extends React.Component {
 
 const mapStateToProps = (state) => {
     const { name, phone1, phone2, canText, email, address, instrument,
-      lessonDay, lessonTime, homework, active, notes } = state.studentForm;
+      lessonDay, lessonTime, hourlyRate, homework, active, notes
+    } = state.studentForm;
 
     return { name, phone1, phone2, canText, email, address, instrument,
-      lessonDay, lessonTime, homework, active, notes };
+      lessonDay, lessonTime, hourlyRate, homework, active, notes };
 };
 
 export default connect(mapStateToProps,

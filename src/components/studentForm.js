@@ -12,6 +12,7 @@ class StudentForm extends React.Component {
       toggled: false,
       canText: false,
       isVisible: false,
+      chosenTime: ''
     };
     this.onTextSwitchChange = this.onTextSwitchChange.bind(this);
     this.onActiveSwitchChange = this.onActiveSwitchChange.bind(this);
@@ -38,7 +39,8 @@ class StudentForm extends React.Component {
   pickTime(time) {
     time = time.toString().slice(16, 22);
     let newTime = this.convertTime(time);
-    this.props.studentUpdate({ prop: 'lessonTime', newTime});
+    this.setState({ chosenTime: newTime });
+    this.props.studentUpdate({ prop: 'lessonTime', value: newTime });
     this.hideTimePicker();
   }
 
@@ -122,6 +124,17 @@ class StudentForm extends React.Component {
 
         <CardSection>
           <Input
+            label="Hourly Rate ($)"
+            value={this.props.hourlyRate}
+            placeholder="Enter hourly rate"
+            keyboardType="numeric"
+            onChangeText={text =>
+              this.props.studentUpdate({ prop: 'hourlyRate', value: text })}
+          />
+        </CardSection>
+
+        <CardSection>
+          <Input
             label="Instrument"
             value={this.props.instrument}
             placeholder="Enter instrument here"
@@ -149,8 +162,9 @@ class StudentForm extends React.Component {
 
         <CardSection>
           <Text style={styles.labelStyle}>Lesson Time</Text>
-        <Button onPress={this.showTimePicker.bind(this)}>Choose Lesson Time
-        </Button>
+          <Text style={{color: '#fff'}}>{this.state.chosenTime}</Text>
+          <Button onPress={this.showTimePicker.bind(this)}>Choose
+          </Button>
           <DateTimePicker
             mode="time"
             isVisible={this.state.isVisible}
@@ -159,7 +173,6 @@ class StudentForm extends React.Component {
             confirmTextIOS="Save"
             titleIOS="Select a Lesson Time"
           />
-        <Text></Text>
         </CardSection>
 
         <CardSection>
@@ -210,10 +223,11 @@ const styles = {
 
 const mapStateToProps = (state) => {
   const { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, homework, active, notes } = state.studentForm;
+    lessonDay, lessonTime, hourlyRate, homework, active, notes
+  } = state.studentForm;
 
   return { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, homework, active, notes };
+    lessonDay, lessonTime, hourlyRate, homework, active, notes };
 };
 
 export default connect(mapStateToProps, { studentUpdate })(StudentForm);

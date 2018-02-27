@@ -14,6 +14,7 @@ const INITIAL_STATE = {
   active: false,
   homework: '',
   notes: '',
+  hourlyRate: '0',
   instrument: '',
   lessonDay: '',
   lessonTime: ''
