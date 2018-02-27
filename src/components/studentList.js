@@ -28,9 +28,9 @@ class StudentList extends React.Component {
 
 const mapStateToProps = (state) => {
   const students = _.map(state.students, (val, uid) => {
-    return { ...val, uid}
-  })
-  return { students }
-}
+    return _.merge({}, val, uid);
+  });
+  return { students };
+};
 
-export default StudentList;
+export default connect(mapStateToProps, { studentsFetch })(StudentList);
