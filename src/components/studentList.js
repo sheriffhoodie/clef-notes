@@ -28,7 +28,7 @@ class StudentList extends React.Component {
 
 const mapStateToProps = (state) => {
   const students = _.map(state.students, (val, uid) => {
-    return _.merge({}, val, uid);
+    return _.merge({}, val, {uid});
   });
   return { students };
 };

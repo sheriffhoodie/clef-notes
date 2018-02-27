@@ -3,7 +3,8 @@ import firebase from 'firebase';
 import {
   STUDENT_UPDATE,
   CLEAR_STUDENT_FORM,
-  STUDENTS_FETCH_SUCCESS
+  STUDENTS_FETCH_SUCCESS,
+  SELECT_STUDENT
 } from './types';
 
 export const studentUpdate = ({prop, value}) => {
@@ -40,3 +41,10 @@ export const studentsFetch = () => {
     });
   };
 } ;
+
+export const selectStudent = (studentId) => {
+  return {
+    type: SELECT_STUDENT,
+    payload: studentId
+  };
+};

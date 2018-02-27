@@ -16,7 +16,7 @@ const styles = {
     backgroundColor: '#000',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    borderColor: '#ddd',
+    borderColor: '#2BCECB',
     position: 'relative',
   }
 };

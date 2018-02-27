@@ -24,7 +24,8 @@ class SignupForm extends React.Component {
     }
 
     return (
-      <Button onPress={this.onButtonPress.bind(this)}>
+      <Button style={{fontFamily: 'Futura', color: '#fff'}}
+        onPress={this.onButtonPress.bind(this)}>
         Create Account
       </Button>
     );
