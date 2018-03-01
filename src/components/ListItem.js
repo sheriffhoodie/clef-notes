@@ -3,28 +3,46 @@ import { Text, View, TouchableWithoutFeedback,
   LayoutAnimation } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { CardSection } from './common';
+import { CardSection, Button } from './common';
 import { selectStudent } from '../actions';
 
 class ListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expandOn: false
+    };
+    this.changeToggle = this.changeToggle.bind(this);
+  }
+
   componentWillUpdate() {
-    LayoutAnimation.easeInEaseOut();
+    LayoutAnimation.spring();
+  }
+
+  changeToggle() {
+    this.setState({ expandOn: !this.state.expandOn});
+  }
+
+  onInfoPress() {
+    Actions.editStudent({ student: this.props.student });
   }
 
   renderInfo() {
     const { instrument, lessonDay, lessonTime } = this.props.student;
-    if (this.props.expanded) {
+    if (this.props.expanded && this.state.expandOn) {
       return (
         <CardSection style={styles.containerStyle}>
-          <Text style={styles.infoTextStyle}>
-            {instrument}
-          </Text>
-          <Text style={styles.infoTextStyle}>
-            {lessonDay}
-          </Text>
-          <Text style={styles.infoTextStyle}>
-            {lessonTime}
-          </Text>
+          <View style={{flex: 1}}>
+            <Text style={styles.infoTextStyle}>
+              {instrument}
+            </Text>
+            <Text style={styles.infoTextStyle}>
+              {lessonDay}s at {lessonTime}
+            </Text>
+          </View>
+          <Button style={{flex: 1}} onPress={this.onInfoPress.bind(this)}>
+            View Info
+          </Button>
         </CardSection>
       );
     }
@@ -33,7 +51,8 @@ class ListItem extends React.Component {
   render() {
     const {name, uid} = this.props.student;
     return (
-        <TouchableWithoutFeedback onPress={() => this.props.selectStudent(uid)}>
+        <TouchableWithoutFeedback onPressOut={this.changeToggle}
+          onPress={() => this.props.selectStudent(uid)}>
           <View>
             <CardSection>
               <Text style={styles.titleStyle}>

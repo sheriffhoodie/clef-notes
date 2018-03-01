@@ -18,7 +18,8 @@ export const studentCreate = ({ name, phone1, phone2, email, address, canText, i
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`users/${currentUser.uid}/students`)
-      .push({ name, phone1, phone2, email, address, canText, instrument, active, notes, hourlyRate, homework, lessonTime, lessonDay })
+      .push({ name, phone1, phone2, email, address, canText, instrument,
+        active, notes, hourlyRate, homework, lessonTime, lessonDay })
       .then(() => {
         dispatch({ type: CLEAR_STUDENT_FORM });
         Actions.pop();
@@ -46,5 +47,30 @@ export const selectStudent = (studentId) => {
   return {
     type: SELECT_STUDENT,
     payload: studentId
+  };
+};
+
+export const studentSave = ({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, lessonDay, uid }) => {
+  const { currentUser } = firebase.auth();
+  return (dispatch) => {
+    firebase.database().ref(`/users/${currentUser.uid}/students/${uid}`)
+    .set({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, lessonDay })
+    .then(() => {
+      dispatch({ type: CLEAR_STUDENT_FORM });
+      Actions.pop();
+    }
+    );
+  };
+};
+
+export const studentDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/students/${uid}`)
+    .remove()
+    .then(() => {
+      Actions.pop();
+    });
   };
 };

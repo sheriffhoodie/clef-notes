@@ -5,6 +5,7 @@ import SignupForm from './components/signupForm';
 import Landing from './components/landing';
 import StudentList from './components/studentList';
 import AddStudent from './components/addStudent';
+import EditStudent from './components/editStudent';
 
 const RouterComponent = () => {
   return (
@@ -28,6 +29,10 @@ const RouterComponent = () => {
             key="addStudent"
             component={AddStudent}
             title="Add Student"/>
+          <Scene
+            key="editStudent"
+            component={EditStudent}
+            title="Student Info"/>
         </Scene>
       </Scene>
     </Router>
