@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Button } from './common';
 
@@ -15,47 +15,50 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+         style={styles.imageStyle}
+         source={require('../../images/black-background-image.jpg')}
+       >
         <View style={styles.viewStyle}>
           <Image
             style={styles.pictureStyle}
             resizeMode='cover'
             source={require('../../images/clefnotes-logo.png')} />
         </View>
-      <Card style={styles.cardStyle}>
-        <CardSection>
-          <Button onPress={this.LoginPress.bind(this)}>
-            Login
-          </Button>
-        </CardSection>
+        <Card style={styles.cardStyle}>
+          <CardSection style={{marginTop: 25, borderBottomWidth: 0, backgroundColor: 'transparent', borderColor: 'transparent'}}>
+            <Button onPress={this.LoginPress.bind(this)}>
+              Login
+            </Button>
+          </CardSection>
 
-        <CardSection>
-          <Button onPress={this.SignupPress.bind(this)}>
-            Create an Account
-          </Button>
-        </CardSection>
-      </Card>
-      </View>
+          <CardSection style={{marginTop: 22, borderBottomWidth: 0, backgroundColor: 'transparent', borderColor: 'transparent'}}>
+            <Button onPress={this.SignupPress.bind(this)}>
+              Create an Account
+            </Button>
+          </CardSection>
+        </Card>
+      </ImageBackground>
     );
   }
 }
 
 const styles = {
   cardStyle: {
-    backgroundColor: 'black',
-    // flex: 2
-  },
-  viewStyle: {
-    // flex: 1
+    borderWidth: 0
   },
   pictureStyle: {
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0
-    width: 380,
-    height: 380
+    width: 340,
+    height: 340,
+    marginLeft: 15,
+    marginTop: 25,
+    marginRight: 15,
+    marginBottom: 20
+  },
+  imageStyle: {
+    flex: 1,
+    width: null,
+    height: null
   }
 };
 

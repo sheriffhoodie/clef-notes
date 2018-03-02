@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Card, CardSection, Button, Confirm } from './common';
 import { studentUpdate, studentSave, studentDelete } from '../actions';
 import StudentForm from './studentForm';
@@ -51,14 +52,14 @@ class EditStudent extends React.Component {
           <CardSection>
             <Button style={{backgroundColor: '#007aff'}}
               onPress={this.onButtonPress.bind(this)}>
-              Save Changes
+              <Icon name="save" size={20} /> Save Changes
             </Button>
           </CardSection>
 
           <CardSection>
             <Button style={{backgroundColor: '#f75a56'}}
               onPress={this.openModal.bind(this)}>
-              Delete Student
+              <Icon name="trash" size={20} /> Delete Student
             </Button>
           </CardSection>
 
