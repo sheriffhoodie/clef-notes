@@ -29,8 +29,10 @@ class StudentForm extends React.Component {
   convertTime(time) {
     let hour = time.slice(0, 2);
     let mins = time.slice(3, 5);
-    if (parseInt(hour) <= 12) {
+    if (parseInt(hour) < 12) {
       return hour + ":" + mins + " AM";
+    } else if (parseInt(hour) === 12) {
+      return hour + ":" + mins + " PM";
     } else {
       return (parseInt(hour - 12)).toString() + ":" + mins + " PM";
     }

@@ -52,20 +52,16 @@ class ListItem extends React.Component {
               </Text>
             </View>
             <View style={{flex: 1, flexDirection: 'row'}}>
-              <Button style={styles.phoneStyle}
+              <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
-                Call
+                <Icon name="phone" size={20} /> Call
               </Button>
-              <Icon.Button name="phone" backgroundColor="#4cd964"
-                onPress={this.onCallPress.bind(this)}>
-                Call
-              </Icon.Button>
-              <Button style={styles.textButtonStyle}
+              <Button style={{backgroundColor: "#007aff"}}
                 onPress={this.onTextPress.bind(this)}>
-                Text
+                <Icon name="comment" size={20} /> Text
               </Button>
               <Button onPress={this.onInfoPress.bind(this)}>
-                View Info
+                <Icon name="info-circle" size={20} /> Info
               </Button>
             </View>
           </CardSection>
@@ -82,12 +78,12 @@ class ListItem extends React.Component {
               </Text>
             </View>
             <View style={{flex: 1, flexDirection: 'row'}}>
-              <Button style={styles.phoneStyle}
+              <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
-                Call
+                <Icon name="phone" size={20} /> Call
               </Button>
               <Button onPress={this.onInfoPress.bind(this)}>
-                View Info
+                <Icon name="info-circle" size={20} /> Info
               </Button>
             </View>
           </CardSection>
@@ -133,12 +129,6 @@ const styles = {
     fontFamily: 'Thonburi-Light',
     paddingLeft: 30
   },
-  phoneStyle: {
-    backgroundColor: '#4cd964'
-  },
-  textButtonStyle: {
-    backgroundColor: '#007aff'
-  }
 };
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import LoginForm from './components/loginForm';
 import SignupForm from './components/signupForm';
 import Landing from './components/landing';
@@ -23,7 +24,7 @@ const RouterComponent = () => {
         </Scene>
         <Scene key="main">
           <Scene initial key="studlist" component={StudentList}
-            title="Your Students" rightTitle="Add"
+            title="Your Students" rightTitle={<Icon name="user-plus" size={25} />}
             onRight={() => Actions.addStudent()}/>
           <Scene
             key="addStudent"
