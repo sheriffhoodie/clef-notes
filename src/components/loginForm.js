@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <Button style={{fontFamily: 'Futura'}}
+      <Button style={{fontFamily: 'Thonburi-Light'}}
         onPress={this.onButtonPress.bind(this)}>
         Login
       </Button>
@@ -83,7 +83,7 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red',
-    fontFamily: 'Futura'
+    fontFamily: 'Thonburi-Light'
   }
 };
 

@@ -3,6 +3,7 @@ import { Text, View, TouchableWithoutFeedback,
   LayoutAnimation } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import Communications from 'react-native-communications';
 import { CardSection, Button } from './common';
 import { selectStudent } from '../actions';
 
@@ -16,7 +17,7 @@ class ListItem extends React.Component {
   }
 
   componentWillUpdate() {
-    LayoutAnimation.spring();
+    LayoutAnimation.easeInEaseOut();
   }
 
   changeToggle() {
@@ -27,12 +28,16 @@ class ListItem extends React.Component {
     Actions.editStudent({ student: this.props.student });
   }
 
-  renderInfo() {
+  onCallPress() {
+    Communications.phonecall(this.props.student.phone1, true);
+  }
+
+  renderContent() {
     const { instrument, lessonDay, lessonTime } = this.props.student;
     if (this.props.expanded && this.state.expandOn) {
       return (
         <CardSection style={styles.containerStyle}>
-          <View style={{flex: 1}}>
+          <View>
             <Text style={styles.infoTextStyle}>
               {instrument}
             </Text>
@@ -40,9 +45,15 @@ class ListItem extends React.Component {
               {lessonDay}s at {lessonTime}
             </Text>
           </View>
-          <Button style={{flex: 1}} onPress={this.onInfoPress.bind(this)}>
-            View Info
-          </Button>
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <Button style={styles.phoneStyle}
+              onPress={this.onCallPress.bind(this)}>
+              Call
+            </Button>
+            <Button onPress={this.onInfoPress.bind(this)}>
+              View Info
+            </Button>
+          </View>
         </CardSection>
       );
     }
@@ -59,7 +70,7 @@ class ListItem extends React.Component {
                 {name}
               </Text>
             </CardSection>
-          {this.renderInfo()}
+          {this.renderContent()}
         </View>
       </TouchableWithoutFeedback>
     );
@@ -70,9 +81,8 @@ const styles = {
   titleStyle: {
     fontSize: 23,
     paddingLeft: 15,
-    color: '#2BCECB',
-    fontWeight: 'bold',
-    fontFamily: 'Futura'
+    color: '#fff',
+    fontFamily: 'Thonburi-Light'
   },
   containerStyle: {
     flex: 1,
@@ -82,7 +92,11 @@ const styles = {
   infoTextStyle: {
     fontSize: 17,
     color: '#fff',
-    fontFamily: 'Futura'
+    fontFamily: 'Thonburi-Light',
+    paddingLeft: 30
+  },
+  phoneStyle: {
+    backgroundColor: 'green'
   }
 };
 
