@@ -9,10 +9,10 @@ class StudentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggled: false,
-      canText: false,
+      toggled: this.props.active || false,
+      canText: this.props.canText || false,
       isVisible: false,
-      chosenTime: ''
+      chosenTime: this.props.lessonTime || ''
     };
     this.onTextSwitchChange = this.onTextSwitchChange.bind(this);
     this.onActiveSwitchChange = this.onActiveSwitchChange.bind(this);

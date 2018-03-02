@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableWithoutFeedback,
   LayoutAnimation } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import Communications from 'react-native-communications';
@@ -32,30 +33,66 @@ class ListItem extends React.Component {
     Communications.phonecall(this.props.student.phone1, true);
   }
 
+  onTextPress() {
+    Communications.text(this.props.student.phone1);
+  }
+
   renderContent() {
-    const { instrument, lessonDay, lessonTime } = this.props.student;
+    const { instrument, lessonDay, lessonTime, canText } = this.props.student;
     if (this.props.expanded && this.state.expandOn) {
-      return (
-        <CardSection style={styles.containerStyle}>
-          <View>
-            <Text style={styles.infoTextStyle}>
-              {instrument}
-            </Text>
-            <Text style={styles.infoTextStyle}>
-              {lessonDay}s at {lessonTime}
-            </Text>
-          </View>
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <Button style={styles.phoneStyle}
-              onPress={this.onCallPress.bind(this)}>
-              Call
-            </Button>
-            <Button onPress={this.onInfoPress.bind(this)}>
-              View Info
-            </Button>
-          </View>
-        </CardSection>
-      );
+      if (canText === true) {
+        return (
+          <CardSection style={styles.containerStyle}>
+            <View>
+              <Text style={styles.infoTextStyle}>
+                {instrument}
+              </Text>
+              <Text style={styles.infoTextStyle}>
+                {lessonDay}s at {lessonTime}
+              </Text>
+            </View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <Button style={styles.phoneStyle}
+                onPress={this.onCallPress.bind(this)}>
+                Call
+              </Button>
+              <Icon.Button name="phone" backgroundColor="#4cd964"
+                onPress={this.onCallPress.bind(this)}>
+                Call
+              </Icon.Button>
+              <Button style={styles.textButtonStyle}
+                onPress={this.onTextPress.bind(this)}>
+                Text
+              </Button>
+              <Button onPress={this.onInfoPress.bind(this)}>
+                View Info
+              </Button>
+            </View>
+          </CardSection>
+        );
+      } else {
+        return (
+          <CardSection style={styles.containerStyle}>
+            <View>
+              <Text style={styles.infoTextStyle}>
+                {instrument}
+              </Text>
+              <Text style={styles.infoTextStyle}>
+                {lessonDay}s at {lessonTime}
+              </Text>
+            </View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <Button style={styles.phoneStyle}
+                onPress={this.onCallPress.bind(this)}>
+                Call
+              </Button>
+              <Button onPress={this.onInfoPress.bind(this)}>
+                View Info
+              </Button>
+            </View>
+          </CardSection>
+        );
+      }
     }
   }
 
@@ -87,7 +124,8 @@ const styles = {
   containerStyle: {
     flex: 1,
     flexDirection: 'column',
-    paddingLeft: 15
+    paddingLeft: 15,
+    backgroundColor: '#4a4f4c'
   },
   infoTextStyle: {
     fontSize: 17,
@@ -96,7 +134,10 @@ const styles = {
     paddingLeft: 30
   },
   phoneStyle: {
-    backgroundColor: 'green'
+    backgroundColor: '#4cd964'
+  },
+  textButtonStyle: {
+    backgroundColor: '#007aff'
   }
 };
 

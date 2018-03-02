@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "dependencies": {
     "firebase": "^4.10.1",
@@ -15,6 +16,7 @@
     "react-native-linear-gradient": "^2.4.0",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-router-flux": "^4.0.0-beta.28",
+    "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

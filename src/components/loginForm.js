@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <Button style={{fontFamily: 'Thonburi-Light'}}
+      <Button
         onPress={this.onButtonPress.bind(this)}>
         Login
       </Button>

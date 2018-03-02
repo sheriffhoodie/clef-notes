@@ -49,13 +49,15 @@ class EditStudent extends React.Component {
         <Card>
           <StudentForm />
           <CardSection>
-            <Button onPress={this.onButtonPress.bind(this)}>
+            <Button style={{backgroundColor: '#007aff'}}
+              onPress={this.onButtonPress.bind(this)}>
               Save Changes
             </Button>
           </CardSection>
 
           <CardSection>
-            <Button onPress={this.openModal.bind(this)}>
+            <Button style={{backgroundColor: '#f75a56'}}
+              onPress={this.openModal.bind(this)}>
               Delete Student
             </Button>
           </CardSection>
