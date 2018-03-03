@@ -98,7 +98,7 @@ class ListItem extends React.Component {
         <TouchableWithoutFeedback onPressOut={this.changeToggle}
           onPress={() => this.props.selectStudent(uid)}>
           <View>
-            <CardSection>
+            <CardSection style={{height: 65, backgroundColor: 'rgba(0, 0, 0, 0.4)'}}>
               <Text style={styles.titleStyle}>
                 {name}
               </Text>
@@ -121,7 +121,8 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     paddingLeft: 15,
-    backgroundColor: '#4a4f4c'
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    alignItems: 'flex-start'
   },
   infoTextStyle: {
     fontSize: 17,

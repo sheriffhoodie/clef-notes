@@ -2,8 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { View, ImageBackground } from 'react-native';
 import { studentsFetch } from '../actions';
 import ListItem from './ListItem';
 
@@ -14,16 +13,19 @@ class StudentList extends React.Component {
 
   render() {
     return (
+      <ImageBackground style={styles.gradientStyle}
+        source={require('../../images/gradient1.png')}>
         <FlatList
-            data={this.props.students}
-            keyExtractor={(stud, index) => `${index}`}
-            renderItem={({ item }) => (
-              <ListItem
-                student={item}
-                name={item.name}
-              />
-            )}
-          />
+          data={this.props.students}
+          keyExtractor={(stud, index) => `${index}`}
+          renderItem={({ item }) => (
+            <ListItem
+              student={item}
+              name={item.name}
+            />
+          )}
+        />
+      </ImageBackground>
     );
   }
 }
@@ -37,7 +39,9 @@ const mapStateToProps = (state) => {
 
 const styles = {
   gradientStyle: {
-
+    flex: 1,
+    width: null,
+    height: null,
   }
 };
 
