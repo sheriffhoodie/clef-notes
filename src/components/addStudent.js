@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { studentUpdate, studentCreate, clearStudentForm } from '../actions';
 import { Card, CardSection, Button } from './common';
 import StudentForm from './studentForm';
@@ -25,8 +26,9 @@ class AddStudent extends React.Component {
         <Card>
           <StudentForm />
           <CardSection>
-            <Button onPress={this.onSubmit.bind(this)}>
-              Add Student
+            <Button style={{backgroundColor: "#2BCECB"}}
+              onPress={this.onSubmit.bind(this)}>
+              <Icon name="plus" size={20} /> Add Student
             </Button>
           </CardSection>
         </Card>

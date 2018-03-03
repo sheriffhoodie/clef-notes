@@ -18,7 +18,6 @@ const styles = {
     flexDirection: 'row',
     borderColor: '#2BCECB',
     position: 'relative',
-    alignItems: 'center',
   }
 };
 
