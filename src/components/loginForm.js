@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
   renderError() {
     if (this.props.error) {
       return (
-        <View style={{ backgroundColor: 'white' }}>
+        <View style={{ backgroundColor: 'transparent' }}>
           <Text style={styles.errorTextStyle}>
             {this.props.error}
           </Text>
@@ -91,9 +91,8 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red',
+    fontWeight: 'bold',
     fontFamily: 'Thonburi-Light'
-  },
-  cardStyle: {
   },
   textStyle: {
     fontSize: 45,

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, Text, Picker, Switch, DatePickerIOS } from 'react-native';
+import { ScrollView, Text, Picker, Switch, View, DatePickerIOS } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { studentUpdate } from '../actions';
 import { CardSection, Input, Button } from './common';
@@ -105,7 +106,7 @@ class StudentForm extends React.Component {
         </CardSection>
 
         <CardSection>
-          <Text style={styles.labelStyle}>Can Text?</Text>
+          <Text style={styles.label3Style}>Can Text?</Text>
           <Switch
             onTintColor="#2BCECB"
             value={this.state.canText}
@@ -164,9 +165,13 @@ class StudentForm extends React.Component {
 
         <CardSection>
           <Text style={styles.labelStyle}>Lesson Time</Text>
-          <Text style={{color: '#fff'}}>{this.state.chosenTime}</Text>
-          <Button onPress={this.showTimePicker.bind(this)}>Choose
-          </Button>
+          <View style={{flex: 1, flexDirection: 'column'}}>
+            <Text style={styles.label2Style}>{this.state.chosenTime}</Text>
+            <Button style={{backgroundColor: "#2BCECB", flex: 1}}
+              onPress={this.showTimePicker.bind(this)}>
+                <Icon name="clock-o" size={35} />
+            </Button>
+          </View>
           <DateTimePicker
             mode="time"
             isVisible={this.state.isVisible}
@@ -182,7 +187,6 @@ class StudentForm extends React.Component {
             label="Assignment"
             multiline={true}
             value={this.props.homework}
-            placeholder="Assignments for the student"
             onChangeText={text =>
               this.props.studentUpdate({ prop: 'homework', value: text })}
           />
@@ -199,7 +203,7 @@ class StudentForm extends React.Component {
         </CardSection>
 
         <CardSection>
-          <Text style={styles.labelStyle}>Active?</Text>
+          <Text style={styles.label3Style}>Active?</Text>
           <Switch
             onTintColor="#2BCECB"
             value={this.state.toggled}
@@ -216,7 +220,24 @@ const styles = {
   labelStyle: {
     fontSize: 18,
     paddingLeft: 20,
-    color: '#fff'
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  label2Style: {
+    fontSize: 22,
+    alignSelf: 'center',
+    flex: 1,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 10
+  },
+  label3Style: {
+    fontSize: 18,
+    paddingLeft: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginRight: 30
   },
   pickerItemStyle: {
     color: '#fff'

@@ -30,7 +30,7 @@ export default (state = INITIAL_STATE, action) => {
         user: action.payload, loading: false});
     case LOGIN_USER_FAIL:
       return merge({}, state,
-        {error: 'Authentication failed. Please try again.',
+        {error: 'Authentication failed.' + "\n" + 'Please try again.',
           password: '', loading: false});
     default:
       return state;
