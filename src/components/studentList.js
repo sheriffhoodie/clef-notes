@@ -14,7 +14,7 @@ class StudentList extends React.Component {
   render() {
     return (
       <ImageBackground style={styles.gradientStyle}
-        source={require('../../images/gradient1.png')}>
+        source={require('../../images/gradient2.png')}>
         <FlatList
           data={this.props.students}
           keyExtractor={(stud, index) => `${index}`}
