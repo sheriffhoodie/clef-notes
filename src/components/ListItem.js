@@ -51,7 +51,7 @@ class ListItem extends React.Component {
                 {lessonDay}s at {lessonTime}
               </Text>
             </View>
-            <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={styles.viewStyle}>
               <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
                 <Icon name="phone" size={20} /> Call
@@ -77,7 +77,7 @@ class ListItem extends React.Component {
                 {lessonDay}s at {lessonTime}
               </Text>
             </View>
-            <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={styles.viewStyle}>
               <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
                 <Icon name="phone" size={20} /> Call
@@ -132,8 +132,12 @@ const styles = {
     fontSize: 17,
     color: '#fff',
     fontFamily: 'Thonburi-Light',
-    paddingLeft: 30
   },
+  viewStyle: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 7
+  }
 };
 
 const mapStateToProps = (state, ownProps) => {

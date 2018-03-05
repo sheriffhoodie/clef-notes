@@ -23,10 +23,10 @@ class EditStudent extends React.Component {
 
   onButtonPress() {
     const { name, phone1, phone2, canText, email, address, instrument,
-      lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes } = this.props;
+      lessonDay, lessonTime, timeInt, dateObj, hourlyRate, homework, active, notes } = this.props;
 
     this.props.studentSave({ name, phone1, phone2, canText, email, address,
-      instrument, lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes,
+      instrument, lessonDay, lessonTime, timeInt, dateObj, hourlyRate, homework, active, notes,
       uid: this.props.student.uid });
   }
 
@@ -78,11 +78,11 @@ class EditStudent extends React.Component {
 
 const mapStateToProps = (state) => {
   const { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes } = state.studentForm;
+    lessonDay, lessonTime, timeInt, dateObj, hourlyRate, homework, active, notes } = state.studentForm;
 
   return {
     name, phone1, phone2, canText, email, address, instrument,
-      lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes
+      lessonDay, lessonTime, timeInt, dateObj, hourlyRate, homework, active, notes
   };
 };
 

@@ -14,12 +14,12 @@ export const studentUpdate = ({prop, value}) => {
   };
 };
 
-export const studentCreate = ({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, timeInt, lessonDay }) => {
+export const studentCreate = ({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, timeInt, dateObj, lessonDay }) => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`users/${currentUser.uid}/students`)
       .push({ name, phone1, phone2, email, address, canText, instrument,
-        active, notes, hourlyRate, homework, lessonTime, timeInt, lessonDay })
+        active, notes, hourlyRate, homework, lessonTime, timeInt, dateObj, lessonDay })
       .then(() => {
         dispatch({ type: CLEAR_STUDENT_FORM });
         Actions.pop();
@@ -50,11 +50,11 @@ export const selectStudent = (studentId) => {
   };
 };
 
-export const studentSave = ({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, timeInt, lessonDay, uid }) => {
+export const studentSave = ({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, lessonTime, timeInt, dateObj, lessonDay, uid }) => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/students/${uid}`)
-    .set({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, timeInt, lessonTime, lessonDay })
+    .set({ name, phone1, phone2, email, address, canText, instrument, active, hourlyRate, homework, notes, timeInt, dateObj, lessonTime, lessonDay })
     .then(() => {
       dispatch({ type: CLEAR_STUDENT_FORM });
       Actions.pop();

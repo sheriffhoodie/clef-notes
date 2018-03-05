@@ -14,7 +14,7 @@ class StudentForm extends React.Component {
       canText: this.props.canText || false,
       isVisible: false,
       chosenTime: this.props.lessonTime || '',
-      dateObj: this.props.dateObj
+      dateObj: new Date(this.props.dateObj) || new Date()
     };
     this.onTextSwitchChange = this.onTextSwitchChange.bind(this);
     this.onActiveSwitchChange = this.onActiveSwitchChange.bind(this);
@@ -48,7 +48,7 @@ class StudentForm extends React.Component {
   }
 
   pickTime(time) {
-    this.setState({ dateObj: time });
+    this.props.studentUpdate({ prop: 'dateObj', value: time.toString() });
     time = time.toString().slice(16, 22);
     let newTime = this.convertTime(time);
     this.setState({ chosenTime: newTime });
@@ -258,11 +258,11 @@ const styles = {
 
 const mapStateToProps = (state) => {
   const { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes
+    lessonDay, lessonTime, timeInt, dateObj, hourlyRate, homework, active, notes
   } = state.studentForm;
 
   return { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes };
+    lessonDay, lessonTime, timeInt, dateObj, hourlyRate, homework, active, notes };
 };
 
 export default connect(mapStateToProps, { studentUpdate })(StudentForm);

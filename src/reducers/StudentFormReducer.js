@@ -18,7 +18,8 @@ const INITIAL_STATE = {
   instrument: '',
   lessonDay: '',
   lessonTime: '',
-  timeInt: 0
+  timeInt: 0,
+  dateObj: null
 };
 
 export default (state = INITIAL_STATE, action) => {
