@@ -1,7 +1,9 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, Text } from 'react-native';
+import Firebase from 'firebase';
+import ModalDropdown from 'react-native-modal-dropdown';
 import LoginForm from './components/loginForm';
 import SignupForm from './components/signupForm';
 import Landing from './components/landing';
@@ -12,12 +14,17 @@ import WeekView from './components/weekView';
 
 const renderSettingsButton = () => {
   return (
-    <TouchableOpacity style={{paddingLeft: 10}}
-        onPress={() => {}}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name="cog" size={25} />
-        </View>
-    </TouchableOpacity>
+    <ModalDropdown
+      options={[<View style={styles.viewStyle}><Icon name="sign-out" size={20}/>
+      <Text style={styles.dropTextStyle}>Log Out</Text></View>]}
+      style={styles.dropdownButtonStyle}
+      dropdownStyle={styles.dropStyle}
+      dropdownTextStyle={styles.dropTextStyle}
+      onSelect={() => Firebase.auth().signOut().then(() => Actions.landing())}>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Icon name="cog" size={25} />
+      </View>
+    </ModalDropdown>
   );
 };
 
@@ -59,6 +66,34 @@ const RouterComponent = () => {
       </Scene>
     </Router>
   );
+};
+
+const styles = {
+  dropdownButtonStyle: {
+    marginLeft: 12
+  },
+  dropStyle: {
+    height: 45,
+    width: 150,
+    borderColor: '#2BCECB',
+    borderWidth: 3,
+    borderRadius: 5
+  },
+  dropTextStyle: {
+    fontSize: 18,
+    fontFamily: 'Thonburi-Light',
+    alignSelf: 'center',
+    color: '#000',
+    marginLeft: 6
+  },
+  viewStyle: {
+    width: 150,
+    height: 45,
+    paddingLeft: 11,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
 };
 
 export default RouterComponent;

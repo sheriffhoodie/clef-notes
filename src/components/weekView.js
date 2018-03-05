@@ -242,7 +242,9 @@ const styles = {
   titleStyle: {
     color: 'white',
     fontSize: 28,
-    paddingTop: 12
+    paddingTop: 12,
+    marginLeft: 8,
+    marginRight: 8
   },
   innerTextStyle: {
     color: '#fff',
@@ -252,12 +254,15 @@ const styles = {
   innerTextStyle2: {
     color: '#fff',
     fontSize: 20,
-    paddingLeft: 10
+    paddingLeft: 20
   },
   containerStyle: {
     height: 50,
     borderRadius: 10,
-    padding: 10
+    padding: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    marginLeft: 8,
+    marginRight: 8
   }
 };
 

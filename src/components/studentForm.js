@@ -13,7 +13,8 @@ class StudentForm extends React.Component {
       toggled: this.props.active || false,
       canText: this.props.canText || false,
       isVisible: false,
-      chosenTime: this.props.lessonTime || ''
+      chosenTime: this.props.lessonTime || '',
+      dateObj: this.props.dateObj
     };
     this.onTextSwitchChange = this.onTextSwitchChange.bind(this);
     this.onActiveSwitchChange = this.onActiveSwitchChange.bind(this);
@@ -47,6 +48,7 @@ class StudentForm extends React.Component {
   }
 
   pickTime(time) {
+    this.setState({ dateObj: time });
     time = time.toString().slice(16, 22);
     let newTime = this.convertTime(time);
     this.setState({ chosenTime: newTime });
@@ -183,6 +185,7 @@ class StudentForm extends React.Component {
           </View>
           <DateTimePicker
             mode="time"
+            date={this.state.dateObj}
             isVisible={this.state.isVisible}
             onConfirm={this.pickTime.bind(this)}
             onCancel={this.hideTimePicker.bind(this)}
