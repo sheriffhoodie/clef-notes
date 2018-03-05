@@ -13,15 +13,23 @@ class WeekView extends React.Component {
   getMondays() {
     let mondays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Monday');
+
     if (mondays.length !== 0) {
       let mondayStuds = [<Text key={mondays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Monday</Text>];
+        style={styles.titleStyle}>Monday</Text>];
+
+      mondays = mondays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < mondays.length; i++) {
         mondayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{mondays[i].lessonTime}</Text>
-            <Text style={{color: 'white'}}>{mondays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {mondays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {mondays[i].name}</Text>
           </CardSection>
         );
       }
@@ -34,15 +42,23 @@ class WeekView extends React.Component {
   getTuesdays() {
     let tuesdays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Tuesday');
+
     if (tuesdays.length !== 0) {
       let tuesdayStuds = [<Text key={tuesdays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Tuesday</Text>];
+        style={styles.titleStyle}>Tuesday</Text>];
+
+      tuesdays = tuesdays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < tuesdays.length; i++) {
         tuesdayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{tuesdays[i].lessonTime}</Text>
-            <Text style={{color: 'white'}}>{tuesdays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {tuesdays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {tuesdays[i].name}</Text>
           </CardSection>
         );
       }
@@ -55,15 +71,23 @@ class WeekView extends React.Component {
   getWednesdays() {
     let wednesdays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Wednesday');
+
     if (wednesdays.length !== 0) {
       let wednesdayStuds = [<Text key={wednesdays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Wednesday</Text>];
+        style={styles.titleStyle}>Wednesday</Text>];
+
+      wednesdays = wednesdays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < wednesdays.length; i++) {
         wednesdayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{wednesdays[i].lessonTime}</Text>
-            <Text style={{color: 'white'}}>{wednesdays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {wednesdays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {wednesdays[i].name}</Text>
           </CardSection>
         );
       }
@@ -76,15 +100,23 @@ class WeekView extends React.Component {
   getThursdays() {
     let thursdays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Thursday');
+
     if (thursdays.length !== 0) {
       let thursdayStuds = [<Text key={thursdays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Thursday</Text>];
+        style={styles.titleStyle}>Thursday</Text>];
+
+      thursdays = thursdays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < thursdays.length; i++) {
         thursdayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{thursdays[i].lessonTime}</Text>
-            <Text style={{color: 'white'}}>{thursdays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {thursdays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {thursdays[i].name}</Text>
           </CardSection>
         );
       }
@@ -97,15 +129,23 @@ class WeekView extends React.Component {
   getFridays() {
     let fridays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Friday');
+
     if (fridays.length !== 0) {
       let fridayStuds = [<Text key={fridays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Friday</Text>];
+        style={styles.titleStyle}>Friday</Text>];
+
+      fridays = fridays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < fridays.length; i++) {
         fridayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{fridays[i].lessonTime}</Text>
-          <Text style={{color: 'white'}}>{fridays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {fridays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {fridays[i].name}</Text>
           </CardSection>
         );
       }
@@ -118,15 +158,23 @@ class WeekView extends React.Component {
   getSaturdays() {
     let saturdays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Saturday');
+
     if (saturdays.length !== 0) {
       let saturdayStuds = [<Text key={saturdays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Saturday</Text>];
+        style={styles.titleStyle}>Saturday</Text>];
+
+      saturdays = saturdays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < saturdays.length; i++) {
         saturdayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{saturdays[i].lessonTime}</Text>
-          <Text style={{color: 'white'}}>{saturdays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {saturdays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {saturdays[i].name}</Text>
           </CardSection>
         );
       }
@@ -139,15 +187,23 @@ class WeekView extends React.Component {
   getSundays() {
     let sundays = this.props.students.filter(
       (stud) => stud.lessonDay === 'Sunday');
+
     if (sundays.length !== 0) {
       let sundayStuds = [<Text key={sundays[0].uid}
-        style={{color: 'white', fontSize: 28}}>Sunday</Text>];
+        style={styles.titleStyle}>Sunday</Text>];
+
+      sundays = sundays.sort(function(a, b) {
+        return a.timeInt - b.timeInt;
+      });
+
       for (let i = 0; i < sundays.length; i++) {
         sundayStuds.push(
           <CardSection key={i}
-            style={{height: 100}}>
-            <Text style={{color: 'white'}}>{sundays[i].lessonTime}</Text>
-          <Text style={{color: 'white'}}>{sundays[i].name}</Text>
+            style={styles.containerStyle}>
+            <Text style={styles.innerTextStyle}>
+              {sundays[i].lessonTime}</Text>
+            <Text style={styles.innerTextStyle2}>
+              {sundays[i].name}</Text>
           </CardSection>
         );
       }
@@ -182,6 +238,26 @@ const styles = {
     flex: 1,
     width: null,
     height: null,
+  },
+  titleStyle: {
+    color: 'white',
+    fontSize: 28,
+    paddingTop: 12
+  },
+  innerTextStyle: {
+    color: '#fff',
+    fontSize: 15,
+    paddingLeft: 10
+  },
+  innerTextStyle2: {
+    color: '#fff',
+    fontSize: 20,
+    paddingLeft: 10
+  },
+  containerStyle: {
+    height: 50,
+    borderRadius: 10,
+    padding: 10
   }
 };
 

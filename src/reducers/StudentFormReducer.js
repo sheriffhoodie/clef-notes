@@ -17,7 +17,8 @@ const INITIAL_STATE = {
   hourlyRate: '0',
   instrument: '',
   lessonDay: '',
-  lessonTime: ''
+  lessonTime: '',
+  timeInt: 0
 };
 
 export default (state = INITIAL_STATE, action) => {

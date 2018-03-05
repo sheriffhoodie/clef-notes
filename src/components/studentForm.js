@@ -27,6 +27,13 @@ class StudentForm extends React.Component {
     this.setState({ isVisible: false });
   }
 
+  createTimeInt(time) {
+    let hour = time.slice(0, 2);
+    let mins = time.slice(3, 5);
+    let intString = hour + mins;
+    return parseInt(intString);
+  }
+
   convertTime(time) {
     let hour = time.slice(0, 2);
     let mins = time.slice(3, 5);
@@ -43,7 +50,9 @@ class StudentForm extends React.Component {
     time = time.toString().slice(16, 22);
     let newTime = this.convertTime(time);
     this.setState({ chosenTime: newTime });
+    let timeInt = this.createTimeInt(time);
     this.props.studentUpdate({ prop: 'lessonTime', value: newTime });
+    this.props.studentUpdate({ prop: 'timeInt', value: timeInt});
     this.hideTimePicker();
   }
 
@@ -246,11 +255,11 @@ const styles = {
 
 const mapStateToProps = (state) => {
   const { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, hourlyRate, homework, active, notes
+    lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes
   } = state.studentForm;
 
   return { name, phone1, phone2, canText, email, address, instrument,
-    lessonDay, lessonTime, hourlyRate, homework, active, notes };
+    lessonDay, lessonTime, timeInt, hourlyRate, homework, active, notes };
 };
 
 export default connect(mapStateToProps, { studentUpdate })(StudentForm);
