@@ -2,8 +2,7 @@
 
 ### A new way for private music teachers to keep their notes in line
 
-![Logo Image](https://github.com/sheriffhoodie/clef-notes/blob/master/images/clefnotes-logo-small.png =780x)
-<!-- ![Logo Image](https://github.com/sheriffhoodie/clef-notes/blob/master/images/clefnotes-logo-small.png) -->
+![Logo Image](https://github.com/sheriffhoodie/clef-notes/blob/master/images/clefnotes-logo-small.png)
 
 ClefNotes is a notes and organization app designed for private music teachers to help manage their students' information and track their weekly lesson times. It is built using the cross-platform React Native library (iPhone- and Android-friendly) and uses Google Firebase for user authentication and user data storage.
 
@@ -15,25 +14,25 @@ ClefNotes will soon be added to the App Store and Google Play but in the meantim
 
 1. Student Management
 
-gif 1 here
+![stud gif](images/CN-update.gif)
 
 Users can easily manage their students with full Create-Read-Update-Delete capabilities. After initial creation, tapping the "Info" button for each student will bring you back to the Student Form with all of that student's current information pre-populated. Tapping the "Save Changes" button at the bottom will immediately update the student's info with your changes.
 
 2. Communication Shortcuts
 
-gif 2 here
+![comm gif](images/CN-shortcuts.gif)
 
 In the master List View page, tapping on a student's name will expand their section, revealing their instrument, lesson day, and lesson time, along with various shortcut communication buttons. If the student has the "Can Text?" option enabled, a blue Text shortcut button will be available. Otherwise, a green Email button to email the student will appear instead. Each of these shortcut buttons will navigate you to that app in your device, with the student's info (phone number or email address) pre-filled for you.  
 
 3. Dual Students View
 
-gif 3
+![dual gif](images/CN-dual.gif)
 
 You can view your students in two ways: in the general List View where you can see all your students in a master list and access their individual information, or you can view them in chronological order in the Week View, which sorts your students by their lesson days and then again by their lesson times.
 
 4. User Authentication
 
-gif 4
+![auth gif](images/CN-auth.gif)
 
 ClefNotes makes use of Google Firebase for both user authentication and data storage. Users have the option to login with an existing account or create a new account. Any authentication errors are caught and displayed to the user.
 
