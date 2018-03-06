@@ -12,25 +12,25 @@ ClefNotes will soon be added to the App Store and Google Play but in the meantim
 
 ## Features
 
-1. Student Management
+### 1. Student Management
 
 ![stud gif](images/CN-update.gif)
 
 Users can easily manage their students with full Create-Read-Update-Delete capabilities. After initial creation, tapping the "Info" button for each student will bring you back to the Student Form with all of that student's current information pre-populated. Tapping the "Save Changes" button at the bottom will immediately update the student's info with your changes.
 
-2. Communication Shortcuts
+### 2. Communication Shortcuts
 
 ![comm gif](images/CN-shortcuts.gif)
 
 In the master List View page, tapping on a student's name will expand their section, revealing their instrument, lesson day, and lesson time, along with various shortcut communication buttons. If the student has the "Can Text?" option enabled, a blue Text shortcut button will be available. Otherwise, a green Email button to email the student will appear instead. Each of these shortcut buttons will navigate you to that app in your device, with the student's info (phone number or email address) pre-filled for you.  
 
-3. Dual Students View
+### 3. Dual Students View
 
 ![dual gif](images/CN-dual.gif)
 
 You can view your students in two ways: in the general List View where you can see all your students in a master list and access their individual information, or you can view them in chronological order in the Week View, which sorts your students by their lesson days and then again by their lesson times.
 
-4. User Authentication
+### 4. User Authentication
 
 ![auth gif](images/CN-auth.gif)
 

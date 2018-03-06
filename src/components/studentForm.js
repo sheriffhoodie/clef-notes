@@ -157,6 +157,26 @@ class StudentForm extends React.Component {
           />
         </CardSection>
 
+        <CardSection>
+          <Input
+            label="Assignment"
+            multiline={true}
+            value={this.props.homework}
+            onChangeText={text =>
+              this.props.studentUpdate({ prop: 'homework', value: text })}
+          />
+        </CardSection>
+
+        <CardSection>
+          <Input
+            label="Notes"
+            multiline={true}
+            value={this.props.notes}
+            onChangeText={text =>
+              this.props.studentUpdate({ prop: 'notes', value: text })}
+          />
+        </CardSection>
+
         <CardSection style={{ flexDirection: 'column' }}>
           <Text style={styles.labelStyle}>Lesson Day</Text>
           <Picker
@@ -194,25 +214,6 @@ class StudentForm extends React.Component {
           />
         </CardSection>
 
-        <CardSection>
-          <Input
-            label="Assignment"
-            multiline={true}
-            value={this.props.homework}
-            onChangeText={text =>
-              this.props.studentUpdate({ prop: 'homework', value: text })}
-          />
-        </CardSection>
-
-        <CardSection>
-          <Input
-            label="Notes"
-            multiline={true}
-            value={this.props.notes}
-            onChangeText={text =>
-              this.props.studentUpdate({ prop: 'notes', value: text })}
-          />
-        </CardSection>
 
         <CardSection>
           <Text style={styles.label3Style}>Active?</Text>
