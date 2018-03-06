@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, Picker, Switch, View, DatePickerIOS } from 'react-native';
+import { ScrollView, Text, Picker, Switch, View } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DateTimePicker from 'react-native-modal-datetime-picker';

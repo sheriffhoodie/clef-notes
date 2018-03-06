@@ -33,6 +33,10 @@ class ListItem extends React.Component {
     Communications.phonecall(this.props.student.phone1, true);
   }
 
+  onEmailPress() {
+    Communications.email([this.props.student.email], null, null, null, null);
+  }
+
   onTextPress() {
     Communications.text(this.props.student.phone1);
   }
@@ -81,6 +85,10 @@ class ListItem extends React.Component {
               <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
                 <Icon name="phone" size={20} /> Call
+              </Button>
+              <Button style={{backgroundColor: "#4cd964"}}
+                onPress={this.onEmailPress.bind(this)}>
+                <Icon name="envelope" size={20} /> Email
               </Button>
               <Button onPress={this.onInfoPress.bind(this)}>
                 <Icon name="info-circle" size={20} /> Info

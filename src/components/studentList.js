@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { View, ImageBackground } from 'react-native';
+import { ImageBackground } from 'react-native';
 import { studentsFetch } from '../actions';
 import ListItem from './ListItem';
 
