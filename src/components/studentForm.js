@@ -50,11 +50,11 @@ class StudentForm extends React.Component {
   pickTime(time) {
     this.props.studentUpdate({ prop: 'dateObj', value: time.toString() });
     time = time.toString().slice(16, 22);
+    let timeInt = this.createTimeInt(time);
+    this.props.studentUpdate({ prop: 'timeInt', value: timeInt});
     let newTime = this.convertTime(time);
     this.setState({ chosenTime: newTime });
-    let timeInt = this.createTimeInt(time);
     this.props.studentUpdate({ prop: 'lessonTime', value: newTime });
-    this.props.studentUpdate({ prop: 'timeInt', value: timeInt});
     this.hideTimePicker();
   }
 
