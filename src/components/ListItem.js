@@ -43,19 +43,20 @@ class ListItem extends React.Component {
 
   renderContent() {
     const { instrument, lessonDay, lessonTime, canText } = this.props.student;
+    const { containerStyle, infoTextStyle, viewStyle } = styles;
     if (this.props.expanded && this.state.expandOn) {
       if (canText === true) {
         return (
-          <CardSection style={styles.containerStyle}>
+          <CardSection style={containerStyle}>
             <View>
-              <Text style={styles.infoTextStyle}>
+              <Text style={infoTextStyle}>
                 {instrument}
               </Text>
-              <Text style={styles.infoTextStyle}>
+              <Text style={infoTextStyle}>
                 {lessonDay}s at {lessonTime}
               </Text>
             </View>
-            <View style={styles.viewStyle}>
+            <View style={viewStyle}>
               <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
                 <Icon name="phone" size={20} /> Call
@@ -72,16 +73,16 @@ class ListItem extends React.Component {
         );
       } else {
         return (
-          <CardSection style={styles.containerStyle}>
+          <CardSection style={containerStyle}>
             <View>
-              <Text style={styles.infoTextStyle}>
+              <Text style={infoTextStyle}>
                 {instrument}
               </Text>
-              <Text style={styles.infoTextStyle}>
+              <Text style={infoTextStyle}>
                 {lessonDay}s at {lessonTime}
               </Text>
             </View>
-            <View style={styles.viewStyle}>
+            <View style={viewStyle}>
               <Button style={{backgroundColor: "#4cd964"}}
                 onPress={this.onCallPress.bind(this)}>
                 <Icon name="phone" size={20} /> Call
@@ -102,6 +103,7 @@ class ListItem extends React.Component {
 
   render() {
     const {name, uid} = this.props.student;
+    const { titleStyle } = styles;
     return (
         <TouchableWithoutFeedback onPressOut={this.changeToggle}
           onPress={() => this.props.selectStudent(uid)}>
@@ -111,7 +113,7 @@ class ListItem extends React.Component {
                 height: 65,
                 backgroundColor: 'rgba(0, 0, 0, 0.4)',
                 alignItems: 'center'}}>
-              <Text style={styles.titleStyle}>
+              <Text style={titleStyle}>
                 {name}
               </Text>
             </CardSection>
