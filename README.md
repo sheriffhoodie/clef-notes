@@ -14,6 +14,40 @@ ClefNotes will soon be added to the App Store and Google Play but in the meantim
 
 ### Code Sample
 
+One of the bigger challenges in building ClefNotes was dealing with the student's `lessonTime` attribute - to properly display and function across the different components, it needed to take different forms and lengths and be converted to different types at different times. I solved this by doing all my conversion in the `Student Form` component and saving the results to the student object as 3 different values. In the form, the selected time is first saved as a JS Date object, which is used as the initial display time when the user wants to change it later on. Second, the selected time is converted to and stored as a 4-digit integer so that it can be sorted in the `Week View` component. Finally, the selected time is converted to a user-friendly, more readable 12-hour string format with "AM" and "PM" appended, used for display purposes in multiple areas.
+
+```javascript
+createTimeInt(time) {
+  let hour = time.slice(0, 2);
+  let mins = time.slice(3, 5);
+  let intString = hour + mins;
+  return parseInt(intString);
+}
+
+convertTime(time) {
+  let hour = time.slice(0, 2);
+  let mins = time.slice(3, 5);
+  if (parseInt(hour) < 12) {
+    return hour + ":" + mins + " AM";
+  } else if (parseInt(hour) === 12) {
+    return hour + ":" + mins + " PM";
+  } else {
+    return (parseInt(hour - 12)).toString() + ":" + mins + " PM";
+  }
+}
+
+pickTime(time) {
+  this.props.studentUpdate({ prop: 'dateObj', value: time.toString() });
+  time = time.toString().slice(16, 22);
+  let newTime = this.convertTime(time);
+  this.setState({ chosenTime: newTime });
+  let timeInt = this.createTimeInt(time);
+  this.props.studentUpdate({ prop: 'lessonTime', value: newTime });
+  this.props.studentUpdate({ prop: 'timeInt', value: timeInt});
+  this.hideTimePicker();
+}
+```
+
 ## Future Directions
 
 In future updates, I'd like to implement the following:
@@ -26,6 +60,6 @@ In future updates, I'd like to implement the following:
 
 ## Credits
 
-Code by: Max Currier
-Logo Design by: [Logojoy.com](http://logojoy.com)
-Icons from: [FontAwesome](http://fontawesome.com) via [RN Vector Icons](https://github.com/oblador/react-native-vector-icons)
+- Code by: Max Currier
+- Logo Design by: [Logojoy.com](http://logojoy.com)
+- Icons from: [FontAwesome](http://fontawesome.com) via [RN Vector Icons](https://github.com/oblador/react-native-vector-icons)
