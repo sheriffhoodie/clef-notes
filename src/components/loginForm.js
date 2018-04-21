@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { View, Text, ImageBackground } from 'react-native';
+import firebase from 'Firebase';
 import { Card, CardSection, Input, Button, Spinner } from './common';
 import { EmailChanged, PasswordChanged, loginUser } from '../actions';
 
@@ -29,6 +30,14 @@ class LoginForm extends React.Component {
         Login
       </Button>
     );
+  }
+
+  resetPassword() {
+    firebase.auth().sendPasswordResetEmail(this.props.email).then(function() {
+    // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+    });
   }
 
   renderError() {

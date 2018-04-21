@@ -4,11 +4,13 @@
 
 ![Logo Image](https://github.com/sheriffhoodie/clef-notes/blob/master/images/clefnotes-logo-small.png)
 
-ClefNotes is a notes and organization app designed for private music teachers to help manage their students' information and track their weekly lesson times. It is built using the cross-platform React Native library (iPhone- and Android-friendly) and uses Google Firebase for user authentication and user data storage.
+ClefNotes is a notes and organization app designed for private music teachers to help manage their students' information and track their weekly lesson times. It is built using the cross-platform React Native library (iPhone- and Android-friendly), Redux for app state management, and uses Google Firebase for user authentication and user data storage.
 
-### Demo Installation
+## Running the Demo
 
-ClefNotes will soon be added to the App Store and Google Play but in the meantime, [a live demo can be found here](https://snack.expo.io/@sheriffhoodie/clefnotes)! Simply download the free Expo Client app on your mobile device and scan the QR code that appears in the link. You can then demo the app on your own device and in the browser. For those that wish to try the demo, you can use "Test@test.com" and "password" for the demo username and password login.
+ClefNotes will soon be added to the App Store and Google Play but in the meantime, [a live demo can be found here](https://snack.expo.io/@sheriffhoodie/clefnotes)! After clicking the link, if you do not see a mobile phone simulator open on the right side, look at the toolbar at the bottom of the window and toggle the 'Preview' switch to 'on'. There, next to 'Platform', you can also toggle whether you would like the simulator to show in iOS or Android. Once the simulator is ready, you can click 'Tap to Play' to try out the app in the simulator there in your browser or you can click 'Run on your device'. For the latter, simply download the free Expo Client app on your mobile device and use it to scan the QR code that appears in the pop-up. You can then demo the app on your own mobile device. Once you see the ClefNotes login page, feel free to use "Test@test.com" and "password" for the ClefNotes guest username and password login. Enjoy!
+
+* Note: You do not need to worry about the displayed code at all or the uninstalled dependency warnings that appear on the left side. Please leave that side alone and just use the simulator on the right side to interact with ClefNotes.
 
 ## Features
 
